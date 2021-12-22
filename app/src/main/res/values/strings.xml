@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Counter</string>
+    <string name="_0">0</string>
+    <string name="reset">reset</string>
+
+    <string-array name="colors">
+        <item>#F37F7F</item>
+        <item>#94D3A5</item>
+        <item>#856CCA</item>
+        <item>#FF5722</item>
+        <item>#CDDC39</item>
+        <item>#009688</item>
+        <item>#4CAF50</item>
+        <item>#615F5F</item>
+        <item>#DBF3B6</item>
+        <item>#BFFFE9</item>
+    </string-array>
+</resources>
