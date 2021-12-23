@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.ivReset.setOnClickListener {
             counter = 0
+            binding.tvCounter.text = counter.toString()
+            binding.tvCounter.setTextColor(Color.BLACK)
+
         }
     }
 
@@ -34,9 +37,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun increaseCounterChangeColor(color : Int) {
+        binding.tvCounter.text = counter.toString()
         counter++
         binding.tvCounter.text = counter.toString()
-        binding.layout.setBackgroundColor(color)
+        if (counter%10 == 0){
+            binding.tvCounter.setTextColor(color)
+        }
     }
 
 }
