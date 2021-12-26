@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         layout.setOnClickListener {
             increaseCounterChangeColor()
         }
+
         resetButton.setOnClickListener {
             counter = 0
             counterTextView.text = counter.toString()
