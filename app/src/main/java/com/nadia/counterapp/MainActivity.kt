@@ -10,6 +10,7 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     lateinit var counterTextView: TextView
+    lateinit var totalTextView: TextView
     private var counter = 0
     private val colorsTxt: Array<String> = arrayOf(
         "#F37F7F",
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         counterTextView = findViewById(R.id.tv_counter)
+        totalTextView = findViewById(R.id.tv_total)
+
         val resetButton = findViewById<ImageView>(R.id.iv_reset)
         val layout = findViewById<ConstraintLayout>(R.id.layout)
 
@@ -39,6 +42,19 @@ class MainActivity : AppCompatActivity() {
             counterTextView.text = counter.toString()
             counterTextView.setTextColor(Color.BLACK)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sp = getSharedPreferences("mySharedPreference" , MODE_PRIVATE)
+        ("Total = "+ sp.getString("total","")).also { totalTextView.text = it }
+    }
+    override fun onPause() {
+        super.onPause()
+        val sp = getSharedPreferences("mySharedPreference" , MODE_PRIVATE)
+        val edit = sp.edit()
+        edit.putString("total", counterTextView.text.toString())
+        edit.apply()
     }
 
     private fun getRandomColor(): Int {
