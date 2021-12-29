@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Counter App</string>
+    <string name="app_name" translatable="false">Counter App</string>
+    <string name="_0" translatable="false">0</string>
+    <string name="total_counts">Total counts :</string>
+    <string name="reset">Reset</string>
+
 
 
 </resources>

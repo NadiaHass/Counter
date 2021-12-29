@@ -10,19 +10,35 @@
         android:id="@+id/tv_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/purple_200"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:text="@string/total_counts"
+        android:textStyle="italic"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_total_counts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_total_counts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_total"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
         android:id="@+id/tv_counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="@string/_0"
         android:textColor="@color/black"
         android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -30,13 +46,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.379" />
 
-    <ImageView
-        android:id="@+id/iv_reset"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="reset"
-        android:src="@drawable/ic_baseline_replay_24"
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/reset"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/tv_counter"
         app:layout_constraintStart_toStartOf="@+id/tv_counter"
         app:layout_constraintTop_toBottomOf="@+id/tv_counter" />
