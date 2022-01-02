@@ -1,30 +1,19 @@
 package com.nadia.counterapp
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-    lateinit var counterTextView: TextView
-    lateinit var totalTextView: TextView
+    private lateinit var counterTextView: TextView
+    private lateinit var totalTextView: TextView
     private var counter = 0
-    private val colors: Array<String> = arrayOf(
-        "#F37F7F",
-        "#94D3A5",
-        "#856CCA",
-        "#FF5722",
-        "#CDDC39",
-        "#009688",
-        "#4CAF50",
-        "#615F5F",
-        "#DBF3B6",
-        "#BFFFE9")
+    private val colors: Array<Int> = arrayOf(R.color.color1, R.color.color2, R.color.color3, R.color.color4, R.color.color5,R.color.color6, R.color.color7, R.color.color8, R.color.color9, R.color.color10)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,17 +25,13 @@ class MainActivity : AppCompatActivity() {
         val layout = findViewById<ConstraintLayout>(R.id.layout)
 
         layout.setOnClickListener {
-            increaseCounterChangeColor()
+            increaseCounterAndChangeColor()
         }
 
         resetButton.setOnClickListener {
-            counter = 0
-            counterTextView.text = counter.toString()
-            counterTextView.setTextColor(Color.BLACK)
-            Toast.makeText(this , "Setting count to zero " , Toast.LENGTH_LONG ).show()
+            resetCounterAndColor()
         }
     }
-
     override fun onResume() {
         super.onResume()
         val sp = getSharedPreferences("mySharedPreference" , MODE_PRIVATE)
@@ -59,17 +44,21 @@ class MainActivity : AppCompatActivity() {
         edit.putString("total", counterTextView.text.toString())
         edit.apply()
     }
-
-    private fun getRandomColor(): Int {
-        return Color.parseColor(colors[Random.nextInt(colors.size)])
+    private fun resetCounterAndColor(){
+        counter = 0
+        counterTextView.text = counter.toString()
+        counterTextView.setTextColor(Color.BLACK)
+        Toast.makeText(this , "Setting count to zero " , Toast.LENGTH_LONG ).show()
     }
-
-    private fun increaseCounterChangeColor() {
+    private fun increaseCounterAndChangeColor() {
         counterTextView.text = counter.toString()
         counter++
         counterTextView.text = counter.toString()
         if (counter % 10 == 0) {
             counterTextView.setTextColor(getRandomColor())
         }
+    }
+    private fun getRandomColor(): Int {
+        return colors[Random.nextInt(colors.size)]
     }
 }

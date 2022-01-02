@@ -7,7 +7,16 @@
     tools:context=".SplashActivity">
 
     <ImageView
-        android:id="@+id/circle"
+        android:id="@+id/iv_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_timer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_circle"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@drawable/circle"
@@ -15,13 +24,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/ic_timer"
-        app:layout_constraintBottom_toBottomOf="@+id/circle"
-        app:layout_constraintEnd_toEndOf="@+id/circle"
-        app:layout_constraintStart_toStartOf="@+id/circle"
-        app:layout_constraintTop_toTopOf="@+id/circle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
